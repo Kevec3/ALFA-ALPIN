@@ -11,7 +11,10 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
-html { scroll-behavior: smooth; }
+html { 
+    scroll-behavior: smooth; 
+    scroll-padding-top: 130px; /* Ez garantálja, hogy a menü és a pajzs ne takarja ki a címet! */
+}
 body { background-color: var(--dark-bg); color: var(--text-light); overflow-x: hidden; line-height: 1.6; padding-top: var(--nav-height); }
 
 /* --- NAVIGÁCIÓ & HAMBURGER --- */

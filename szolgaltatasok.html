@@ -6,14 +6,89 @@
     <title>Szolgáltatások | AL-FA</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- EGYEDI STÍLUSOK A SZOLGÁLTATÁSOK KÁRTYÁKHOZ --- */
+        .service-img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 15px 0;
+            border: 1px solid #333;
+        }
+
+        .service-img-small {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        /* Lenyíló (harmonika) rész stílusa */
+        details.service-details {
+            background: #111;
+            border-radius: 6px;
+            margin-top: 10px;
+            border-left: 3px solid var(--primary);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        details.service-details summary {
+            padding: 15px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            list-style: none; /* Nyíl eltüntetése */
+            position: relative;
+            color: var(--primary);
+            background: #181818;
+            transition: 0.3s;
+        }
+
+        details.service-details summary::-webkit-details-marker { display: none; }
+
+        details.service-details summary::after {
+            content: '\f078'; /* FontAwesome lefelé nyíl */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 15px;
+            transition: 0.3s;
+        }
+
+        details.service-details[open] summary::after {
+            transform: rotate(180deg); /* Felfelé fordul a nyíl lenyitáskor */
+        }
+
+        details.service-details summary:hover { background: #222; }
+
+        .details-content {
+            padding: 15px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            border-top: 1px solid #222;
+            background: #0d0d0d;
+        }
+    </style>
 </head>
 <body>
+
     <nav>
         <div class="logo"><a href="index.html"><img src="Dia2.svg" alt="AL-FA Logó"></a></div>
         <div class="hamburger"><i class="fas fa-bars"></i></div>
         <ul class="nav-links">
             <li><a href="index.html">Kezdőlap</a></li>
-            <li><a href="szolgaltatasok.html" class="active">Szolgáltatások</a></li>
+            <li class="dropdown">
+                <a href="szolgaltatasok.html" class="active">Szolgáltatások <i class="fas fa-angle-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="szolgaltatasok.html#favagas">Favágás / Alpin / Fadöntés</a></li>
+                    <li><a href="szolgaltatasok.html#bozotirtas">Bozótirtás & Telektisztítás</a></li>
+                    <li><a href="szolgaltatasok.html#soveny">Sövény nyírás</a></li>
+                    <li><a href="szolgaltatasok.html#zoldhulladek">Zöldhulladék elszállítás</a></li>
+                </ul>
+            </li>
             <li><a href="index.html#velemenyek">Vélemények/Rólunk</a></li>
             <li><a href="galeria.html">Galéria/Videók</a></li>
             <li><a href="gyik.html">GYIK</a></li>
@@ -25,39 +100,140 @@
         <h1 class="section-title">Teljeskörű <span>Szolgáltatásaink</span></h1>
         
         <div class="grid">
+            
             <div class="card" id="favagas">
                 <i class="fas fa-tree"></i>
                 <h3>Favágás</h3>
-                <p>Veszélyes, nehezen megközelíthető fák lebontása, épületek és kerítések felett is.</p>
+                <p>Veszélyes, nehezen megközelíthető fák lebontása, épületek és kerítések felett is[cite: 26].</p>
+                <img src="https://images.unsplash.com/photo-1592424001844-31f08e50b925?auto=format&fit=crop&q=80&w=800" alt="Favágás" class="service-img">
                 
-                <h4 style="margin-top: 20px; color: var(--primary);"><i class="fas fa-mountain"></i> Favágás alpintechnikával</h4>
-                <p>Az alpin technikás favágás során a fát nem egyben döntjük ki, hanem kötéltechnikával, darabonként bontjuk le. Ez a módszer lehetővé teszi a precíz, kontrollált munkavégzést szűk, nehezen megközelíthető területeken is. Alpin technikás favágás akkor indokolt, ha a fa épületek, vezetékek, kerítések vagy egyéb akadályok közelében áll, és nincs elegendő hely a hagyományos fadöntéshez. Ideális megoldás városi környezetben vagy belső udvarokban.</p>
+                <details class="service-details">
+                    <summary><i class="fas fa-mountain" style="font-size: 1rem; margin-right: 8px;"></i> Favágás alpin technikával</summary>
+                    <div class="details-content">
+                        <img src="https://images.unsplash.com/photo-1628189679654-20b12bcbaebf?auto=format&fit=crop&q=80&w=800" alt="Alpin Favágás" class="service-img-small">
+                        <p>Az alpin technikás favágás során a fát nem egyben döntjük ki, hanem kötéltechnikával, darabonként bontjuk le[cite: 27]. Ez a módszer lehetővé teszi a precíz, kontrollált munkavégzést szűk, nehezen megközelíthető területeken is[cite: 28]. Alpin technikás favágás akkor indokolt, ha a fa épületek, vezetékek, kerítések vagy egyéb akadályok közelében áll, és nincs elegendő hely a hagyományos fadöntéshez[cite: 29]. Ideális megoldás városi környezetben vagy belső udvarokban[cite: 30].</p>
+                    </div>
+                </details>
 
-                <h4 style="margin-top: 20px; color: var(--primary);"><i class="fas fa-arrow-down"></i> Fadöntés</h4>
-                <p>A fadöntés során a fa teljes egészében, irányított módon kerül kivágásra a talajszinten. A munkát előzetes állapotfelmérés és tervezés előzi meg, hogy a fa a kijelölt irányba dőljön, biztonságosan, károkozás nélkül. Fadöntésre jellemzően akkor van szükség, ha a fa egészségi állapota leromlott, balesetveszélyessé vált. Elsősorban akkor alkalmazható, ha a környezetben elegendő szabad terület áll rendelkezésre.</p>
+                <details class="service-details">
+                    <summary><i class="fas fa-arrow-down" style="font-size: 1rem; margin-right: 8px;"></i> Fadöntés</summary>
+                    <div class="details-content">
+                        <img src="https://images.unsplash.com/photo-1585834893707-1649931bfa2b?auto=format&fit=crop&q=80&w=800" alt="Fadöntés" class="service-img-small">
+                        <p>A fadöntés során a fa teljes egészében, irányított módon kerül kivágásra a talajszinten[cite: 31]. A munkát előzetes állapotfelmérés és tervezés előzi meg, hogy a fa a kijelölt irányba dőljön, biztonságosan, károkozás nélkül[cite: 32]. Fadöntésre jellemzően akkor van szükség, ha a fa egészségi állapota leromlott, balesetveszélyessé vált[cite: 33]. Elsősorban akkor alkalmazható, ha a környezetben elegendő szabad terület áll rendelkezésre[cite: 34].</p>
+                    </div>
+                </details>
             </div>
 
             <div class="card" id="bozotirtas">
                 <i class="fas fa-seedling"></i>
-                <h3>Bozótirtás & Telektisztítás</h3>
-                <p>Elhanyagolt területek, telkek teljes körű megtisztítása. Sűrű aljnövényzet, cserjék és gaz szakszerű eltávolítása.</p>
+                <h3>Bozótirtás / Telektisztítás</h3>
+                <p>Elhanyagolt területek, telkek és elvadult kertek teljes körű megtisztítása[cite: 5, 15].</p>
+                <img src="https://images.unsplash.com/photo-1592424095438-e6d1eb2b8eb6?auto=format&fit=crop&q=80&w=800" alt="Bozótirtás" class="service-img">
+                
+                <details class="service-details">
+                    <summary>Bővebben a szolgáltatásról</summary>
+                    <div class="details-content">
+                        <p>Vállaljuk ipari parkok, magántelkek, építési területek és nehezen megközelíthető, elvadult részek szakszerű tisztítását. A sűrű aljnövényzet, cserjék, gaz és elszáradt fák eltávolításával a terület újra használhatóvá, füvesíthetővé vagy beépíthetővé válik. Profi gépparkunkkal a legnagyobb dzsungellel is gyorsan elbánunk.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div class="card" id="faapolas">
+                <i class="fas fa-hand-holding-medical"></i>
+                <h3>Faápolás</h3>
+                <p>Fák egészségének megóvása, gallyazás és koronaalakítás a hosszabb élettartamért.</p>
+                <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&q=80&w=800" alt="Faápolás" class="service-img">
+                
+                <details class="service-details">
+                    <summary>Bővebben a szolgáltatásról</summary>
+                    <div class="details-content">
+                        <p>A faápolás célja a fa esztétikumának és egészségének megőrzése, valamint a balesetek megelőzése. Szakszerű gallyazást, a száraz vagy letört ágak eltávolítását, ifjító metszéseket és a lombkorona statikai megerősítését végezzük el, hogy a fái még évtizedekig díszíthessék a környezetüket.</p>
+                    </div>
+                </details>
             </div>
 
             <div class="card" id="soveny">
                 <i class="fas fa-leaf"></i>
                 <h3>Sövény nyírás</h3>
-                <p>Túlméretezett, elhanyagolt sövények szakszerű visszavágása, formázása és ifjító metszése.</p>
+                <p>Túlméretezett, elhanyagolt sövények szakszerű visszavágása, alakítása és formázása[cite: 5, 18].</p>
+                <img src="https://images.unsplash.com/photo-1588628566587-c0f2a71f00b7?auto=format&fit=crop&q=80&w=800" alt="Sövény nyírás" class="service-img">
+                
+                <details class="service-details">
+                    <summary>Bővebben a szolgáltatásról</summary>
+                    <div class="details-content">
+                        <p>Legyen szó esztétikai formázásról, határoló sövények visszavágásáról vagy öreg, megkopott növények ifjító metszéséről, precíz és szemet gyönyörködtető végeredményt garantálunk. Vállaljuk tujasorok, bokrok és egyéb élősövények alkalmi vagy rendszeres karbantartását is.</p>
+                    </div>
+                </details>
             </div>
 
             <div class="card" id="zoldhulladek">
                 <i class="fas fa-truck"></i>
                 <h3>Zöldhulladék elszállítás</h3>
-                <p>A munka során keletkező gallyak, rönkök és zöldhulladék szakszerű aprítása, összegyűjtése és elszállítása.</p>
+                <p>A favágás és telektisztítás során keletkező zöldhulladék szakszerű aprítása és elszállítása[cite: 5, 20].</p>
+                <img src="https://images.unsplash.com/photo-1601565541604-069929255bb1?auto=format&fit=crop&q=80&w=800" alt="Zöldhulladék elszállítás" class="service-img">
+                
+                <details class="service-details">
+                    <summary>Bővebben a szolgáltatásról</summary>
+                    <div class="details-content">
+                        <p>Célunk, hogy a munkaterületet ugyanolyan tisztán, vagy még tisztábban adjuk át, mint ahogy átvettük. Nem hagyunk magunk után rendetlenséget: a levágott gallyakat és ágakat igény szerint darálóval felaprítjuk, a vastagabb rönköket feldaraboljuk, a teljes megmaradt zöldhulladékot pedig teherautóval elszállítjuk a helyszínről.</p>
+                    </div>
+                </details>
             </div>
+
         </div>
     </section>
 
+    <section style="background: linear-gradient(to top, #000000, #111111); border-top: 2px solid var(--primary); text-align: center; padding: 80px 5%;">
+        <h2 class="section-title" style="margin-bottom: 20px;">Kérjen ingyenes <span>helyszíni felmérést!</span></h2>
+        <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px auto;">
+            Legyen szó veszélyes fák kivágásáról, vagy egy elhanyagolt telek megtisztításáról, mi profi gépparkkal és alpintechnikával állunk rendelkezésére.
+        </p>
+        <a href="tel:+36301234567" class="btn" style="font-size: 1.5rem; padding: 20px 50px; border-radius: 50px; box-shadow: 0 10px 30px rgba(255, 102, 0, 0.4); display: inline-flex; align-items: center; justify-content: center; width: 100%; max-width: 400px;">
+            <i class="fas fa-phone-alt" style="margin-right: 15px; font-size: 1.8rem;"></i> HÍVJON MOST
+        </a>
+    </section>
+
+
     <footer><p>&copy; 2024 AL-FA Alpin Favágás Mesterfokon</p></footer>
-    <script> /* Hamburger menü script ide (ugyanaz mint az indexben) */ </script>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        // --- 1. ANIMÁCIÓK INDÍTÁSA ---
+        AOS.init({ duration: 800, once: true, offset: 100 });
+
+        // --- 2. HAMBURGER MENÜ LOGIKA ---
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // --- 3. MOBIL LENYÍLÓ MENÜ (DROPDOWN) JAVÍTÁSA ---
+        const dropdownLink = document.querySelector('.dropdown > a');
+        const dropdown = document.querySelector('.dropdown');
+
+        if (dropdownLink) {
+            dropdownLink.addEventListener('click', function(e) {
+                if (window.innerWidth <= 1000) {
+                    e.preventDefault(); 
+                    dropdown.classList.toggle('active');
+                }
+            });
+        }
+
+        // --- 4. MOBIL MENÜ AUTOMATIKUS BEZÁRÁSA KATTINTÁSKOR ---
+        const menuLinks = document.querySelectorAll('.nav-links a:not(.dropdown > a)');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(window.innerWidth <= 1000) {
+                    navLinks.classList.remove('active');
+                    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+    </script>
 </body>
 </html>

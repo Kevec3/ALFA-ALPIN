@@ -46,7 +46,60 @@
             <a href="kapcsolat.html" class="btn">Kérjen ajánlatot</a>
         </div>
     </section>
+	<section id="szolgaltatasok-kivonat">
+        <h2 class="section-title" data-aos="fade-down">Fő <span>Szolgáltatásaink</span></h2>
+        
+        <div class="grid">
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-tree"></i>
+                <h3>Favágás és Alpintechnika</h3>
+                <p>Veszélyes, nehezen megközelíthető fák lebontása épületek és kerítések felett is, teljes biztonsággal.</p>
+                <a href="szolgaltatasok.html#favagas" style="color: var(--primary); text-decoration: none; font-weight: bold; margin-top: 15px; display: inline-block; transition: 0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='var(--primary)'">
+                    Részletek <i class="fas fa-arrow-right" style="font-size: 0.9rem; margin-left: 5px;"></i>
+                </a>
+            </div>
 
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-seedling"></i>
+                <h3>Bozótirtás / Telektisztítás</h3>
+                <p>Elhanyagolt területek, telkek és elvadult kertek teljes körű megtisztítása a sűrű aljnövényzettől.</p>
+                <a href="szolgaltatasok.html#bozotirtas" style="color: var(--primary); text-decoration: none; font-weight: bold; margin-top: 15px; display: inline-block; transition: 0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='var(--primary)'">
+                    Részletek <i class="fas fa-arrow-right" style="font-size: 0.9rem; margin-left: 5px;"></i>
+                </a>
+            </div>
+
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-hand-holding-medical"></i>
+                <h3>Faápolás</h3>
+                <p>Fák egészségének megóvása, gallyazás, száraz ágak eltávolítása és koronaalakítás a hosszabb élettartamért.</p>
+                <a href="szolgaltatasok.html#faapolas" style="color: var(--primary); text-decoration: none; font-weight: bold; margin-top: 15px; display: inline-block; transition: 0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='var(--primary)'">
+                    Részletek <i class="fas fa-arrow-right" style="font-size: 0.9rem; margin-left: 5px;"></i>
+                </a>
+            </div>
+
+            <div class="card" data-aos="fade-up" data-aos-delay="400">
+                <i class="fas fa-leaf"></i>
+                <h3>Sövény nyírás</h3>
+                <p>Túlméretezett, elhanyagolt sövények szakszerű visszavágása, alakítása és esztétikus formázása.</p>
+                <a href="szolgaltatasok.html#soveny" style="color: var(--primary); text-decoration: none; font-weight: bold; margin-top: 15px; display: inline-block; transition: 0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='var(--primary)'">
+                    Részletek <i class="fas fa-arrow-right" style="font-size: 0.9rem; margin-left: 5px;"></i>
+                </a>
+            </div>
+
+            <div class="card" data-aos="fade-up" data-aos-delay="500">
+                <i class="fas fa-truck"></i>
+                <h3>Zöldhulladék elszállítás</h3>
+                <p>A munka során keletkező zöldhulladék, gallyak szakszerű aprítása, összegyűjtése és elszállítása.</p>
+                <a href="szolgaltatasok.html#zoldhulladek" style="color: var(--primary); text-decoration: none; font-weight: bold; margin-top: 15px; display: inline-block; transition: 0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='var(--primary)'">
+                    Részletek <i class="fas fa-arrow-right" style="font-size: 0.9rem; margin-left: 5px;"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 60px;" data-aos="fade-up">
+            <a href="szolgaltatasok.html" class="btn">Összes szolgáltatásunk</a>
+        </div>
+    </section>
     <section id="velemenyek">
         <h2 class="section-title" data-aos="fade-up">Mit mondanak <span>ügyfeleink?</span></h2>
         <div class="grid">
@@ -67,18 +120,79 @@
             </div>
         </div>
     </section>
+	<section style="background: linear-gradient(to top, #000000, #111111); border-top: 2px solid var(--primary); text-align: center; padding: 80px 5%;">
+        <h2 class="section-title" style="margin-bottom: 20px;">Kérjen ingyenes <span>helyszíni felmérést!</span></h2>
+        <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px auto;">
+            Legyen szó veszélyes fák kivágásáról, vagy egy elhanyagolt telek megtisztításáról, mi profi gépparkkal és alpintechnikával állunk rendelkezésére.
+        </p>
+        
+        <a href="tel:+36301234567" class="btn" style="font-size: 1.5rem; padding: 20px 50px; border-radius: 50px; box-shadow: 0 10px 30px rgba(255, 102, 0, 0.4); display: inline-flex; align-items: center; justify-content: center; width: 100%; max-width: 400px;">
+            <i class="fas fa-phone-alt" style="margin-right: 15px; font-size: 1.8rem;"></i> HÍVJON MOST
+        </a>
+    </section>
 
     <footer><p>&copy; 2024 AL-FA Alpin Favágás Mesterfokon</p></footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
     <script>
-        AOS.init();
+        // --- 1. ANIMÁCIÓK INDÍTÁSA ---
+        AOS.init({ duration: 800, once: true, offset: 100 });
+
+        // --- 2. HAMBURGER MENÜ LOGIKA ---
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
+        
         hamburger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
             hamburger.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
+
+        // --- 3. MOBIL LENYÍLÓ MENÜ (DROPDOWN) JAVÍTÁSA ---
+        const dropdownLink = document.querySelector('.dropdown > a');
+        const dropdown = document.querySelector('.dropdown');
+
+        if (dropdownLink) {
+            dropdownLink.addEventListener('click', function(e) {
+                if (window.innerWidth <= 1000) {
+                    e.preventDefault(); // Megakadályozza, hogy mobilon egyből átugorjon az oldalra
+                    dropdown.classList.toggle('active');
+                }
+            });
+        }
+
+        // --- 4. MOBIL MENÜ AUTOMATIKUS BEZÁRÁSA KATTINTÁSKOR ---
+        const menuLinks = document.querySelectorAll('.nav-links a:not(.dropdown > a)');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if(window.innerWidth <= 1000) {
+                    navLinks.classList.remove('active');
+                    hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                }
+            });
+        });
+
+        // --- 5. LÁTÓTÉR-FIGYELŐ A "VÉLEMÉNYEK" GOMBHOZ ---
+        const velemenyekSection = document.getElementById('velemenyek');
+        if (velemenyekSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const kezdolapLink = document.querySelector('.nav-links a[href="index.html"]');
+                    const velemenyekLink = document.querySelector('.nav-links a[href*="#velemenyek"]');
+
+                    if (entry.isIntersecting) {
+                        if (kezdolapLink) kezdolapLink.classList.remove('active');
+                        if (velemenyekLink) velemenyekLink.classList.add('active');
+                    } else {
+                        if (window.scrollY < velemenyekSection.offsetTop - 300) {
+                            if (velemenyekLink) velemenyekLink.classList.remove('active');
+                            if (kezdolapLink) kezdolapLink.classList.add('active');
+                        }
+                    }
+                });
+            }, { rootMargin: "-150px 0px -150px 0px", threshold: 0.1 });
+            observer.observe(velemenyekSection);
+        }
     </script>
 </body>
 </html>
