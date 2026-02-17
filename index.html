@@ -33,7 +33,7 @@
                     <li><a href="szolgaltatasok.html#zoldhulladek">Zöldhulladék elszállítás</a></li>
                 </ul>
             </li>
-            <li><a href="index.html#velemenyek">Vélemények/Rólunk</a></li>
+            <li><a href="velemenyek.html">Vélemények/Rólunk</a></li>
             <li><a href="galeria.html">Galéria/Videók</a></li>
             <li><a href="gyik.html">GYIK</a></li>
             <li><a href="kapcsolat.html" class="btn">Kapcsolat</a></li>
@@ -120,6 +120,9 @@
                 <h4 style="margin-top: 15px; color: var(--primary);">- Szabó Zoltán</h4>
             </div>
         </div>
+		<div style="text-align: center; margin-top: 60px;" data-aos="fade-up">
+            <a href="velemenyek.html" class="btn">Minden vélemény és Rólunk</a>
+        </div>
     </section>
 	<section style="background: linear-gradient(to top, #000000, #111111); border-top: 2px solid var(--primary); text-align: center; padding: 80px 5%;">
         <h2 class="section-title" style="margin-bottom: 20px;">Kérjen ingyenes <span>helyszíni felmérést!</span></h2>
@@ -131,16 +134,15 @@
             <i class="fas fa-phone-alt" style="margin-right: 15px; font-size: 1.8rem;"></i> HÍVJON MOST
         </a>
     </section>
+	
 
     <footer><p>&copy; 2024 AL-FA Alpin Favágás Mesterfokon</p></footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
-        // --- 1. ANIMÁCIÓK INDÍTÁSA ---
         AOS.init({ duration: 800, once: true, offset: 100 });
 
-        // --- 2. HAMBURGER MENÜ LOGIKA ---
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
         
@@ -149,20 +151,18 @@
             hamburger.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
 
-        // --- 3. MOBIL LENYÍLÓ MENÜ (DROPDOWN) JAVÍTÁSA ---
         const dropdownLink = document.querySelector('.dropdown > a');
         const dropdown = document.querySelector('.dropdown');
 
         if (dropdownLink) {
             dropdownLink.addEventListener('click', function(e) {
                 if (window.innerWidth <= 1000) {
-                    e.preventDefault(); // Megakadályozza, hogy mobilon egyből átugorjon az oldalra
+                    e.preventDefault(); 
                     dropdown.classList.toggle('active');
                 }
             });
         }
 
-        // --- 4. MOBIL MENÜ AUTOMATIKUS BEZÁRÁSA KATTINTÁSKOR ---
         const menuLinks = document.querySelectorAll('.nav-links a:not(.dropdown > a)');
         menuLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -172,28 +172,6 @@
                 }
             });
         });
-
-        // --- 5. LÁTÓTÉR-FIGYELŐ A "VÉLEMÉNYEK" GOMBHOZ ---
-        const velemenyekSection = document.getElementById('velemenyek');
-        if (velemenyekSection) {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    const kezdolapLink = document.querySelector('.nav-links a[href="index.html"]');
-                    const velemenyekLink = document.querySelector('.nav-links a[href*="#velemenyek"]');
-
-                    if (entry.isIntersecting) {
-                        if (kezdolapLink) kezdolapLink.classList.remove('active');
-                        if (velemenyekLink) velemenyekLink.classList.add('active');
-                    } else {
-                        if (window.scrollY < velemenyekSection.offsetTop - 300) {
-                            if (velemenyekLink) velemenyekLink.classList.remove('active');
-                            if (kezdolapLink) kezdolapLink.classList.add('active');
-                        }
-                    }
-                });
-            }, { rootMargin: "-150px 0px -150px 0px", threshold: 0.1 });
-            observer.observe(velemenyekSection);
-        }
     </script>
 </body>
 </html>

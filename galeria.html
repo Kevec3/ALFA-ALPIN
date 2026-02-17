@@ -5,47 +5,80 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galéria és Videók | AL-FA</title>
     <link rel="stylesheet" href="style.css">
-	<link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <style>
-        /* Egyedi stílusok a galéria rácshoz */
+        /* Galéria kép stílusok */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
+            gap: 20px;
             margin-bottom: 60px;
         }
-        .img-placeholder {
-            background: #222;
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #666;
-            font-weight: bold;
+        .gallery-item {
+            cursor: pointer;
+            overflow: hidden;
             border-radius: 8px;
             border: 1px solid #333;
             transition: 0.3s;
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            transition: 0.5s;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Videó konténer (YouTube arányok megtartása) */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 arány */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Lightbox (Nagyító) modal */
+        #lightbox {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            justify-content: center;
+            align-items: center;
+        }
+        #lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border: 3px solid var(--primary);
+            border-radius: 4px;
+        }
+        #lightbox .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: white;
+            font-size: 40px;
             cursor: pointer;
         }
-        .img-placeholder:hover {
-            border-color: var(--primary);
-            transform: scale(1.02);
-            color: var(--primary);
-        }
-        .video-placeholder {
-            background: #1a1a1a;
-            height: 350px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            border-radius: 8px;
-            border: 2px dashed #444;
-        }
-        .video-placeholder i { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
     </style>
 </head>
 <body>
@@ -54,7 +87,7 @@
         <div class="logo"><a href="index.html"><img src="Dia2.svg" alt="AL-FA Logó"></a></div>
         <div class="hamburger"><i class="fas fa-bars"></i></div>
         <ul class="nav-links">
-            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="index.html" >Kezdőlap</a></li>
             <li class="dropdown">
                 <a href="szolgaltatasok.html">Szolgáltatások <i class="fas fa-angle-down"></i></a>
                 <ul class="dropdown-menu">
@@ -64,7 +97,7 @@
                     <li><a href="szolgaltatasok.html#zoldhulladek">Zöldhulladék elszállítás</a></li>
                 </ul>
             </li>
-            <li><a href="index.html#velemenyek">Vélemények/Rólunk</a></li>
+            <li><a href="velemenyek.html">Vélemények/Rólunk</a></li>
             <li><a href="galeria.html" class="active">Galéria/Videók</a></li>
             <li><a href="gyik.html">GYIK</a></li>
             <li><a href="kapcsolat.html" class="btn">Kapcsolat</a></li>
@@ -75,42 +108,36 @@
         <h1 class="section-title" data-aos="fade-down">Munkáink <span>Képekben</span></h1>
         
         <div class="gallery-grid" data-aos="fade-up">
-           <div class="gallery-grid" data-aos="fade-up">
-				<img src="kep1.png" alt="Fakivágás" class="gallery-image">
-				<img src="kep2.png" alt="Alpin technika" class="gallery-image">
-				<img src="kep3.JPG" alt="Bozótirtás" class="gallery-image">
-				<img src="kep4.JPG" alt="Gallyazás" class="gallery-image">
-				
-</div>
+            <div class="gallery-item" onclick="openLightbox('kep1.png')">
+                <img src="kep1.png" alt="Fakivágás">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('kep2.png')">
+                <img src="kep2.png" alt="Alpin technika">
+            </div>
+            <div class="gallery-item" onclick="openLightbox('kep3.jpg')">
+                <img src="kep3.jpg" alt="Telektisztítás">
+            </div>
         </div>
 
         <h1 class="section-title" data-aos="fade-down" style="margin-top: 80px;">Szakmai <span>Videóink</span></h1>
         
         <div class="gallery-grid" data-aos="fade-up">
-            <div class="video-placeholder">
-                <i class="fab fa-youtube"></i>
-                <p>[VIDEÓ HELYE: Veszélyes fa bontása]</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen title="Veszélyes fa kivágása"></iframe>
             </div>
-            <div class="video-placeholder">
-                <i class="fab fa-youtube"></i>
-                <p>[VIDEÓ HELYE: Telektisztítás timelapse]</p>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen title="Alpintechnika munka közben"></iframe>
             </div>
         </div>
     </section>
-		<section style="background: linear-gradient(to top, #000000, #111111); border-top: 2px solid var(--primary); text-align: center; padding: 80px 5%;">
-        <h2 class="section-title" style="margin-bottom: 20px;">Kérjen ingyenes <span>helyszíni felmérést!</span></h2>
-        <p style="font-size: 1.1rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 40px auto;">
-            Legyen szó veszélyes fák kivágásáról, vagy egy elhanyagolt telek megtisztításáról, mi profi gépparkkal és alpintechnikával állunk rendelkezésére.
-        </p>
-        
-        <a href="tel:+36301234567" class="btn" style="font-size: 1.5rem; padding: 20px 50px; border-radius: 50px; box-shadow: 0 10px 30px rgba(255, 102, 0, 0.4); display: inline-flex; align-items: center; justify-content: center; width: 100%; max-width: 400px;">
-            <i class="fas fa-phone-alt" style="margin-right: 15px; font-size: 1.8rem;"></i> HÍVJON MOST
-        </a>
-    </section>
+
+    <div id="lightbox" onclick="closeLightbox()">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Nagyított kép">
+    </div>
 
     <footer><p>&copy; 2024 AL-FA Alpin Favágás Mesterfokon</p></footer>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     <script>
@@ -126,7 +153,8 @@
             hamburger.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
 
-        // --- 3. MOBIL LENYÍLÓ MENÜ (DROPDOWN) JAVÍTÁSA ---
+        // --- 3. MOBIL LENYÍLÓ MENÜ (SZOLGÁLTATÁSOK) JAVÍTÁSA ---
+        // Ez akadályozza meg, hogy mobilon egyből átugorjon a linkre lenyitás helyett
         const dropdownLink = document.querySelector('.dropdown > a');
         const dropdown = document.querySelector('.dropdown');
 
@@ -139,7 +167,7 @@
             });
         }
 
-        // --- 4. MOBIL MENÜ AUTOMATIKUS BEZÁRÁSA KATTINTÁSKOR ---
+        // --- 4. MENÜ AUTOMATIKUS BEZÁRÁSA KATTINTÁSKOR ---
         const menuLinks = document.querySelectorAll('.nav-links a:not(.dropdown > a)');
         menuLinks.forEach(link => {
             link.addEventListener('click', () => {
@@ -148,6 +176,32 @@
                     hamburger.innerHTML = '<i class="fas fa-bars"></i>';
                 }
             });
+        });
+
+        // --- 5. LIGHTBOX (KÉPNAGYÍTÓ) FUNKCIÓK ---
+        function openLightbox(imgSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            if (lightbox && lightboxImg) {
+                lightboxImg.src = imgSrc;
+                lightbox.style.display = 'flex';
+                // Megakadályozzuk a görgetést, amíg nagy a kép
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox) {
+                lightbox.style.display = 'none';
+                // Visszaadjuk a görgetést
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Bezárás ESC billentyűre is
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "Escape") closeLightbox();
         });
     </script>
 </body>
