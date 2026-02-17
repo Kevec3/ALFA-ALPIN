@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AL-FA | Kezdőlap</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero {
+            height: calc(100vh - var(--nav-height)); display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&q=80&w=2000') center/cover fixed;
+        }
+        .hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); text-transform: uppercase; margin-bottom: 10px; }
+        .hero h2 { font-size: clamp(1.2rem, 3vw, 2rem); font-style: italic; color: #ccc; margin-bottom: 40px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><a href="index.html"><img src="Dia2.svg" alt="AL-FA Logó"></a></div>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="index.html" class="active">Kezdőlap</a></li>
+            <li class="dropdown">
+                <a href="szolgaltatasok.html">Szolgáltatások <i class="fas fa-angle-down"></i></a>
+                <ul class="dropdown-menu">
+                    <li><a href="szolgaltatasok.html#favagas">Favágás / Alpin / Fadöntés</a></li>
+                    <li><a href="szolgaltatasok.html#bozotirtas">Bozótirtás & Telektisztítás</a></li>
+                    <li><a href="szolgaltatasok.html#soveny">Sövény nyírás</a></li>
+                    <li><a href="szolgaltatasok.html#zoldhulladek">Zöldhulladék elszállítás</a></li>
+                </ul>
+            </li>
+            <li><a href="index.html#velemenyek">Vélemények/Rólunk</a></li>
+            <li><a href="galeria.html">Galéria/Videók</a></li>
+            <li><a href="gyik.html">GYIK</a></li>
+            <li><a href="kapcsolat.html" class="btn">Kapcsolat</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero">
+        <div data-aos="zoom-in">
+            <h1>AL-FA <span>Alpin Favágás</span></h1>
+            <h2>Biztonságos, gyors, precíz/pontos!</h2>
+            <a href="kapcsolat.html" class="btn">Kérjen ajánlatot</a>
+        </div>
+    </section>
+
+    <section id="velemenyek">
+        <h2 class="section-title" data-aos="fade-up">Mit mondanak <span>ügyfeleink?</span></h2>
+        <div class="grid">
+            <div class="card" data-aos="fade-up" data-aos-delay="100">
+                <i class="fas fa-quote-left" style="color:#333; font-size:2rem;"></i>
+                <p style="font-style: italic;">"Gyorsak, precízek voltak és a tető is épen maradt a hatalmas fa kivágása után. Csak ajánlani tudom őket!"</p>
+                <h4 style="margin-top: 15px; color: var(--primary);">- Kovács Péter</h4>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <i class="fas fa-quote-left" style="color:#333; font-size:2rem;"></i>
+                <p style="font-style: italic;">"Ide másolhatod be a következő véleményt az elégedett ügyfelektől."</p>
+                <h4 style="margin-top: 15px; color: var(--primary);">- Nagy Éva</h4>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-quote-left" style="color:#333; font-size:2rem;"></i>
+                <p style="font-style: italic;">"Ide pedig jöhet a harmadik vélemény a telektisztításról vagy az alpin technikáról."</p>
+                <h4 style="margin-top: 15px; color: var(--primary);">- Szabó Zoltán</h4>
+            </div>
+        </div>
+    </section>
+
+    <footer><p>&copy; 2024 AL-FA Alpin Favágás Mesterfokon</p></footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galéria és Videók | AL-FA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Egyedi stílusok a galéria rácshoz */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin-bottom: 60px;
+        }
+        .img-placeholder {
+            background: #222;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+            border-radius: 8px;
+            border: 1px solid #333;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+        .img-placeholder:hover {
+            border-color: var(--primary);
+            transform: scale(1.02);
+            color: var(--primary);
+        }
+        .video-placeholder {
+            background: #1a1a1a;
+            height: 350px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            border-radius: 8px;
+            border: 2px dashed #444;
+        }
+        .video-placeholder i { font-size: 3rem; color: var(--primary); margin-bottom: 15px; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><a href="index.html"><img src="Dia2.JPG" alt="AL-FA Logó"></a></div>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="szolgaltatasok.html">Szolgáltatások</a></li>
+            <li><a href="index.html#velemenyek">Vélemények/Rólunk</a></li>
+            <li><a href="galeria.html" class="active">Galéria/Videók</a></li>
+            <li><a href="gyik.html">GYIK</a></li>
+            <li><a href="kapcsolat.html" class="btn">Kapcsolat</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h1 class="section-title" data-aos="fade-down">Munkáink <span>Képekben</span></h1>
+        
+        <div class="gallery-grid" data-aos="fade-up">
+           <div class="gallery-grid" data-aos="fade-up">
+				<img src="kep1.png" alt="Fakivágás" class="gallery-image">
+				<img src="kep2.png" alt="Alpin technika" class="gallery-image">
+				<img src="kep3.JPG" alt="Bozótirtás" class="gallery-image">
+				<img src="kep4.JPG" alt="Gallyazás" class="gallery-image">
+				
+</div>
+        </div>
+
+        <h1 class="section-title" data-aos="fade-down" style="margin-top: 80px;">Szakmai <span>Videóink</span></h1>
+        
+        <div class="gallery-grid" data-aos="fade-up">
+            <div class="video-placeholder">
+                <i class="fab fa-youtube"></i>
+                <p>[VIDEÓ HELYE: Veszélyes fa bontása]</p>
+            </div>
+            <div class="video-placeholder">
+                <i class="fab fa-youtube"></i>
+                <p>[VIDEÓ HELYE: Telektisztítás timelapse]</p>
+            </div>
+        </div>
+    </section>
+
+    <footer><p>&copy; 2024 AL-FA Alpin Favágás Mesterfokon</p></footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        
+        // Hamburger menü
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+    </script>
+</body>
+</html>

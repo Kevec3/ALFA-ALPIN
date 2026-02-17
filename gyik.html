@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gyakori Kérdések | AL-FA</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Egyedi stílusok a lenyíló kérdésekhez */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        details {
+            background: var(--card-bg);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary);
+            overflow: hidden;
+            transition: 0.3s;
+        }
+        details:hover {
+            box-shadow: 0 5px 15px rgba(255,102,0,0.1);
+        }
+        summary {
+            padding: 20px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            list-style: none; /* Alapértelmezett nyíl eltüntetése */
+            position: relative;
+        }
+        summary::-webkit-details-marker {
+            display: none; /* Safari miatt */
+        }
+        summary::after {
+            content: '\f067'; /* FontAwesome Plus ikon */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 20px;
+            color: var(--primary);
+            transition: 0.3s;
+        }
+        details[open] summary::after {
+            content: '\f068'; /* FontAwesome Minus ikon */
+        }
+        .faq-content {
+            padding: 0 20px 20px 20px;
+            color: var(--text-muted);
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><a href="index.html"><img src="Dia2.svg" alt="AL-FA Logó"></a></div>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="szolgaltatasok.html">Szolgáltatások</a></li>
+            <li><a href="index.html#velemenyek">Vélemények/Rólunk</a></li>
+            <li><a href="galeria.html">Galéria/Videók</a></li>
+            <li><a href="gyik.html" class="active">GYIK</a></li>
+            <li><a href="kapcsolat.html" class="btn">Kapcsolat</a></li>
+        </ul>
+    </nav>
+
+    <section>
+        <h1 class="section-title" data-aos="fade-down">Gyakori <span>Kérdések</span></h1>
+        
+        <div class="faq-container" data-aos="fade-up">
+            
+            <details>
+                <summary>Mennyibe kerül egy fa kivágása?</summary>
+                <div class="faq-content">
+                    Az ár minden esetben egyedi, mivel számos tényezőtől függ: a fa magasságától, vastagságától, egészségi állapotától, valamint attól, hogy mennyire megközelíthető a terület (vannak-e alatta épületek, vezetékek, kerítések). Éppen ezért minden munkát egy <strong>ingyenes helyszíni felmérés</strong> előz meg, ami alapján pontos árajánlatot adunk.
+                </div>
+            </details>
+
+            <details>
+                <summary>Mi történik a munka során keletkező zöldhulladékkal?</summary>
+                <div class="faq-content">
+                    Természetesen nem hagyunk magunk után rendetlenséget. A levágott gallyakat, ágakat és a fatörzset megegyezés szerint feldaraboljuk, a zöldhulladékot pedig igény esetén <strong>összegyűjtjük és elszállítjuk</strong>[cite: 5, 20]. A vastagabb faanyagot kérésre tűzifa méretre hasogatjuk.
+                </div>
+            </details>
+
+            <details>
+                <summary>Biztonságos az alpintechnikás favágás épületek felett is?</summary>
+                <div class="faq-content">
+                    Igen, a legnagyobb biztonságra törekszünk. Az alpin technikás favágás során a fát darabonként bontjuk le[cite: 27], a levágott elemeket pedig kötelekkel, irányítva engedjük le a földre. Ez a módszer garantálja, hogy a fa alatti épületek, kerítések vagy növényzet nem sérül meg[cite: 28, 29].
+                </div>
+            </details>
+
+            <details>
+                <summary>Vállalnak felelősségbiztosítást az esetleges károkra?</summary>
+                <div class="faq-content">
+                    Természetesen! Minden munkánkat maximális precizitással, a biztonsági előírások szigorú betartásával végezzük. Emellett teljes körű felelősségbiztosítással rendelkezünk, így Ön teljesen nyugodt lehet a munkavégzés alatt.
+                </div>
+            </details>
+
+        </div>
+    </section>
+
+    <footer><p>&copy; 2024 AL-FA Alpin Favágás Mesterfokon</p></footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        
+        // Hamburger menü
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+    </script>
+</body>
+</html>
