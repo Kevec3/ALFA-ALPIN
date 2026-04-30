@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajánlatkérés | AL-FA Alpin Favágás</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <style>
+        /* Űrlap stílusok kifejezetten ehhez az oldalhoz */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .contact-info-box {
+            background: var(--primary);
+            color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(255, 102, 0, 0.2);
+        }
+
+        .contact-info-box h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .contact-info-box p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .contact-detail i {
+            margin-right: 15px;
+            font-size: 1.5rem;
+        }
+
+        .contact-form-box {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-color);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 1rem;
+            background: var(--bg-color);
+            color: var(--text-color);
+            transition: 0.3s;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(255, 102, 0, 0.1);
+            background: var(--card-bg);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            font-size: 1.2rem;
+            padding: 15px;
+            margin-top: 10px;
+        }
+
+        /* Reszponzív (Mobilon egymás alá) */
+        @media (max-width: 900px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><a href="index.html"><img src="Dia2.svg" alt="AL-FA Logó"></a></div>
+        <div class="hamburger"><i class="fas fa-bars"></i></div>
+        <ul class="nav-links">
+            <li><a href="index.html">Kezdőlap</a></li>
+            <li><a href="szolgaltatasok.html">Szolgáltatások</a></li>
+            <li><a href="velemenyek.html">Vélemények/Rólunk</a></li>
+            <li><a href="galeria.html">Galéria/Videók</a></li>
+            <li><a href="teruleteink.html">Területeink</a></li>
+            <li><a href="kapcsolat.html" class="btn">Kapcsolat</a></li>
+        </ul>
+    </nav>
+
+    <section style="padding-top: 120px; padding-bottom: 80px;">
+        <h1 class="section-title" data-aos="fade-down">Kérjen Ingyenes <span>Ajánlatot</span></h1>
+        
+        <div class="contact-container">
+            
+            <div class="contact-info-box" data-aos="fade-right">
+                <h3>Lépjünk kapcsolatba!</h3>
+                <p>Minden favágási és telektisztítási munka más, ezért a legpontosabb árajánlatot helyszíni felmérés, vagy részletes fotók alapján tudjuk adni.</p>
+                
+                <p>Töltse ki az űrlapot, és kollégánk hamarosan felveszi Önnel a kapcsolatot!</p>
+
+                <div style="margin-top: 40px;">
+                    <div class="contact-detail">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+36301234567" style="color: white; text-decoration: none;">+36 30 123 4567</a>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:info@al-fa-favagas.hu" style="color: white; text-decoration: none;">info@al-fa-favagas.hu</a>
+                    </div>
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Budapest és Pest megye</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-box" data-aos="fade-left">
+                <form action="https://formspree.io/f/meenqoob" method="POST">
+                    
+                    <div class="form-group">
+                        <label for="name">Az Ön Neve *</label>
+                        <input type="text" id="name" name="name" placeholder="Vezeték és keresztnév" required>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="form-group">
+                            <label for="phone">Telefonszám *</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+36 30..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">E-mail cím *</label>
+                            <input type="email" id="email" name="email" placeholder="pelda@email.hu" required>
+                        </div>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                        <div class="form-group">
+                            <label for="city">Település / Helyszín *</label>
+                            <input type="text" id="city" name="city" placeholder="Pl.: Érd, Minta utca" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Milyen szolgáltatásra van szükség?</label>
+                            <select id="service" name="service">
+                                <option value="Veszélyes fa kivágása">Veszélyes fa kivágása</option>
+                                <option value="Gallyazás / Visszavágás">Gallyazás / Visszavágás</option>
+                                <option value="Bozótirtás / Telektisztítás">Bozótirtás / Telektisztítás</option>
+                                <option value="Egyéb">Egyéb (Kérem írja le)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">A feladat rövid leírása (fakivágás esetén pl. db szám, méret, van-e a fa alatt akadály?)</label>
+                        <textarea id="message" name="message" placeholder="Írja le a részleteket..."></textarea>
+                    </div>
+
+                    <input type="text" name="_gotcha" style="display:none" />
+					<!-- EZT ADD HOZZÁ: Átirányítás a főoldalra sikeres küldés után -->
+                    <input type="hidden" name="_next" value="https://alfalpin.hu/index.html">
+
+                    <!-- Küldés gomb -->
+                    <button type="submit" class="btn submit-btn">
+                        <i class="fas fa-paper-plane" style="margin-right: 10px;"></i> Ajánlatkérés elküldése
+                    </button>
+
+                </form>
+            </div>
+
+        </div>
+    </section>
+	<a href="ajanlatkeres.html" class="floating-btn">
+        <i class="fas fa-comment-dots"></i> Ajánlatkérés
+    </a>
+
+    <footer style="text-align: center; padding: 40px 20px; background: #2D3436; border-top: 1px solid #222;">
+        <div style="margin-bottom: 15px;">
+            <a href="teruleteink.html" style="color: var(--primary); text-decoration: none; font-weight: bold; transition: 0.3s;" onmouseover="this.style.color='white'" onmouseout="this.style.color='var(--primary)'">
+                <i class="fas fa-map-marker-alt"></i> Szolgáltatási területeink (Budapest és Pest megye)
+            </a>
+        </div>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2024 AL-FA Alpin Favágás Mesterfokon</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: true });
+        
+        // Hamburger menü
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active') ? '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+    </script>
+</body>
+</html>
